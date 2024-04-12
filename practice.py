@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1aAIOfXt5DAGaUq_A80Qq1tNSno7HlEVO
 """
 
-from model import model
+from model import model, prompt_parts
 import streamlit as st
 
 # response = model.generate_content(prompt_parts)
@@ -44,7 +44,7 @@ if prompt := st.chat_input("Enter text to be summarized"):
         full_response = " "
         # Get summary from Summarizer
         try:
-            result = model.generate_content(prompt)
+            result = model.generate_content(prompt_parts)
             full_response += result.text
             message_placeholder.markdown(full_response)
         except:
